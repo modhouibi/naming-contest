@@ -4,8 +4,8 @@ const ContestPreview=(props)=>{
 
     return(
         <div className="contest-preview">
-    <div>{props.contest.categoryName}</div>
-    <div>{props.contest.contestName}</div>
+    <div className="category-name">{props.contest.categoryName}</div>
+    <div className="contest-name">{props.contest.contestName}</div>
       </div>
     );
 }

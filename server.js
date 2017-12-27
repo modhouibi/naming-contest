@@ -1,13 +1,30 @@
+import config from './config';
 import express from 'express';
-import apiRouter from './api'
+import apiRouter from './api';
+import sassMiddleware from 'node-sass-middleware';
+import path from 'path';
+//import serverRender from './serverRender';
 
 const app=express();
-const port = process.env.PORT || 3000;
+const port = config.port;
+
+app.use(sassMiddleware({
+	
+	src:path.join(__dirname,'sass'),
+	dest:path.join(__dirname,'public')
+}))
+
+
 
 app.get('/',(req,res)=>{
-    res.render('index',{
-        content:'<h4>cccccccc</h4>'
-    });
+	//serverRender()
+	//.then(content=>{
+	//	res.render('index',{content});
+	//})
+	//.catch(err=>console.log(err));
+	
+	res.render('index',{content:'sssss'});
+	
 });
 app.set('view engine','ejs');
 app.use('/api',apiRouter);

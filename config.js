@@ -1,2 +1,9 @@
 
-console.log('dddddddddddd');
+
+export default{
+	port : process.env.PORT || 3000,
+	host : process.env.HOST || 'localhost',
+	getServerUrl(){
+		return `http://${this.host}:${this.port}`;
+	}
+}
